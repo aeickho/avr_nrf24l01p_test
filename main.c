@@ -9,6 +9,8 @@
 #include "uart0.h"
 #include "funk/nrf24l01p.h"
 #include "funk/mega48.h"
+#include "funk/openbeacon.h"
+
 #include <string.h>
 uint8_t buf[16];
 
@@ -37,9 +39,12 @@ struct NRF_CFG config;
   uputs0 ("nRF\n\r");
   cli ();
   sei ();
-  uputs0 ("sspInit");	//activate Interrupts
 
+  uputs0 ("nrf_init, ");
   nrf_init(); 
+  uputs0 ("done\n\r");
+
+  uputs0 ("sendConfig, "); //activate Interrupts
   config.nrmacs=1;
   config.maclen[0] = 16;
   config.channel = 81;
@@ -48,6 +53,7 @@ struct NRF_CFG config;
                         
   uputs0 ("done\n\r");
 
+  uputs0 ("read:\n\r");  
   do
     {
 //     uputs0 ("w:");

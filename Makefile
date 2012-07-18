@@ -2,7 +2,8 @@
 PROJECT = nRF
 
 ### Source files and search directory
-CSRC    = main.c uart0.c spi.c funk/mega48.c basic/crc.c funk/nrf24l01p.c
+CSRC    = main.c uart0.c spi.c funk/mega48.c basic/crc.c funk/nrf24l01p.c 
+#funk/openbeacon.c
 ASRC    = 
 VPATH   =
 
